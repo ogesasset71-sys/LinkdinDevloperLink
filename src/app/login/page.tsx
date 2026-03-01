@@ -4,7 +4,8 @@ import React from "react";
 import { FaLinkedin } from "react-icons/fa";
 
 const CLIENT_ID = "860cj7r5jnu43g";
-const REDIRECT_URI = "http://localhost:3000/auth/linkedin/callback";
+const REDIRECT_URI =
+  "https://linkdin-devloper-link.vercel.app/auth/linkedin/callback";
 
 export default function LoginPage() {
   const handleLogin = () => {
