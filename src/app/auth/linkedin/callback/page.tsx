@@ -44,7 +44,7 @@ function CallbackContent() {
       // ──────────────────────────────────────────────────────
       setStatus("Exchanging authorization code...");
       const tokenResponse = await fetch(
-        "http://localhost:8080/api/auth/linkedin/token",
+        "https://developerlinkdin2-7.onrender.com/api/auth/linkedin/token",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -101,7 +101,7 @@ function CallbackContent() {
       // ──────────────────────────────────────────────────────
       setStatus("Saving your profile...");
       const saveResponse = await fetch(
-        "http://localhost:8080/api/auth/linkedin/save-user",
+        "https://developerlinkdin2-7.onrender.com/api/auth/linkedin/save-user",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
