@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { setUser } from "@/redux/slices/userSlice";
 import { FaLinkedin } from "react-icons/fa";
-
+// for for 
 function CallbackContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
