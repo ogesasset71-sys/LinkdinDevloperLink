@@ -4,6 +4,7 @@ import { useEffect, useState, Suspense, useCallback } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { setUser } from "@/redux/slices/userSlice";
+import { FaLinkedin } from "react-icons/fa";
 
 function CallbackContent() {
   const searchParams = useSearchParams();
@@ -101,40 +102,32 @@ function CallbackContent() {
   }, [searchParams, handleOAuthFlow]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#f3f2ef] text-gray-900 font-sans p-6">
-      <div className="max-w-md w-full p-8 rounded-lg bg-white shadow-[0_4px_12px_rgba(0,0,0,0.08)] text-center">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-[#f3f2ef] p-6 font-sans">
+      <div className="w-full max-w-sm mb-6 flex justify-center text-center items-center gap-2">
+        <div className="w-8 h-8 bg-[#0a66c2] rounded flex items-center justify-center">
+          <FaLinkedin className="text-white text-lg" />
+        </div>
+        <span className="font-bold text-2xl tracking-tight text-gray-900">
+          AuthNode
+        </span>
+      </div>
+      <div className="w-full max-w-sm bg-white rounded-lg shadow-[0_4px_12px_rgba(0,0,0,0.08)] p-8 text-center">
         {!error ? (
           <div className="py-6">
-            <div className="w-12 h-12 border-4 border-[#eff3f8] border-t-[#0a66c2] rounded-full animate-spin mx-auto mb-6"></div>
-            <h1 className="text-xl font-bold mb-2 text-gray-900">{status}</h1>
-            <p className="text-gray-500 text-sm">
+            <h1 className="text-2xl font-bold text-gray-900 mb-2">{status}</h1>
+            <p className="text-gray-600 text-sm">
               Please wait while we establish a secure connection with LinkedIn.
             </p>
           </div>
         ) : (
           <div className="py-6">
-            <div className="w-12 h-12 bg-red-50 text-red-600 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </div>
-            <h1 className="text-xl font-bold text-gray-900 mb-2">
+            <h1 className="text-2xl font-bold text-gray-900 mb-2">
               Authentication Failed
             </h1>
             <p className="text-gray-600 text-sm mb-6">{error}</p>
             <button
               onClick={() => router.push("/login")}
-              className="px-6 py-2 bg-[#0a66c2] text-white font-medium rounded-full hover:bg-[#004182] transition-colors"
+              className="w-full border border-gray-400 text-gray-700 bg-white font-medium py-3 px-4 rounded-full hover:bg-gray-50 transition-colors"
             >
               Try Again
             </button>
